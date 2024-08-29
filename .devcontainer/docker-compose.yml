@@ -1,0 +1,12 @@
+services:
+  apache:
+    build: 
+      context: ./apache
+      dockerfile: apache.Dockerfile
+    volumes:
+      - ../apache:/workspace:cached
+    ports:
+      - 8080:80
+    privileged: true
+    command: /usr/sbin/init
+    tty: true
