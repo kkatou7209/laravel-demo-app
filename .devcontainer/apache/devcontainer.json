@@ -16,7 +16,8 @@
             "extensions": [
                 // Laravelの拡張機能パック
                 // https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-extension-pack
-                "onecentlin.laravel-extension-pack"
+                "onecentlin.laravel-extension-pack",
+                "Vue.volar"
             ]
         }
     }

@@ -8,6 +8,7 @@ services:
       - ../laravel:/workspace:cached
     ports:
       - 8080:80
+      - 5173:5173
     privileged: true
     command: /usr/sbin/init
     tty: true
