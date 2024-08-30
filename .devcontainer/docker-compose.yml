@@ -4,7 +4,7 @@ services:
       context: ./apache
       dockerfile: apache.Dockerfile
     volumes:
-      - ../apache:/workspace:cached
+      - ../laravel:/workspace:cached
     ports:
       - 8080:80
     privileged: true
