@@ -1,5 +1,6 @@
 services:
   apache:
+    container_name: laravel-demo-apache
     build: 
       context: ./apache
       dockerfile: apache.Dockerfile
@@ -10,3 +11,25 @@ services:
     privileged: true
     command: /usr/sbin/init
     tty: true
+    networks:
+      - laravel-demo-net
+
+  mariadb:
+    container_name: laravel-demo-mariadb
+    build: 
+      context: ./mariadb
+      dockerfile: mariadb.Dockerfile
+    environment:
+      MARIADB_ROOT_PASSWORD: admin
+      MARIADB_DATABASE: demo_app
+      MARIADB_USER: mariadb-user
+      MARIADB_PASSWORD: mariadb-pass
+      TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
+    networks:
+      - laravel-demo-net
+
+networks:
+  laravel-demo-net:
+    driver: bridge

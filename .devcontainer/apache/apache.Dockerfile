@@ -41,6 +41,7 @@ RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm;\
                    php-openssl\
                    php-pcre\
                    php-pdo\
+                   php-mysql\
                    php-session\
                    php-tokenizer\
                    php-xml\
