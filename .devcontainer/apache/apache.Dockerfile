@@ -3,8 +3,9 @@
 # コンテナイメージにRockyLinuxを選択
 FROM rockylinux:8.9
 
-# Composerのバージョン（2024年8月現在最新バージョン）
+# Composerのバージョン
 ENV COMPOSER_VERSION=2.7.8
+# Nodeバージョン
 ENV NODE_VERSION=22.7.0
 
 RUN dnf -y update && \
@@ -65,8 +66,11 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
 
 # nvmでNodeとnpmをインストール
 RUN . ~/.nvm/nvm.sh\
+    # 指定のバージョンでNodeをインストール
     && nvm install ${NODE_VERSION}\
+    # デフォルトのNodeバージョンを設定
     && nvm alias default ${NODE_VERSION}\
+    # デフォルトバージョンを使用する
     && nvm use default
 
 # Apacheインストール
