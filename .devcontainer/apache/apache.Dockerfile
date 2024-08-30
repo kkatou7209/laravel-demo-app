@@ -5,6 +5,7 @@ FROM rockylinux:8.9
 
 # Composerのバージョン（2024年8月現在最新バージョン）
 ENV COMPOSER_VERSION=2.7.8
+ENV NODE_VERSION=22.7.0
 
 RUN dnf -y update && \
     # 必要パッケージのインストール
@@ -58,6 +59,15 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');";\
             --version=${COMPOSER_VERSION};\
     # もういらないのでインストーラーを削除
     php -r "unlink('composer-setup.php');"
+
+# Nodeバージョン管理ツールのnvmをインストール
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# nvmでNodeとnpmをインストール
+RUN . ~/.nvm/nvm.sh\
+    && nvm install ${NODE_VERSION}\
+    && nvm alias default ${NODE_VERSION}\
+    && nvm use default
 
 # Apacheインストール
 RUN dnf -y install httpd
