@@ -16,19 +16,7 @@
             "extensions": [
                 // Laravelの拡張機能パック
                 // https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-extension-pack
-                "onecentlin.laravel-extension-pack",
-
-                // Gitのコミットをグラフ化する
-                // https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph#:~:text=Git%20Graph%20extension%20for%20Visual,look%20the%20way%20you%20want!
-                "mhutchie.git-graph",
-                
-                // Gitの変更履歴を可視化する
-                // https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory
-                "donjayamanne.githistory",
-                
-                // これもGit上の変更履歴を可視化する
-                // https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
-                "eamodio.gitlens"
+                "onecentlin.laravel-extension-pack"
             ]
         }
     }
