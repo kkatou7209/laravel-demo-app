@@ -6,6 +6,9 @@ services:
       dockerfile: apache.Dockerfile
     volumes:
       - ../laravel:/workspace:cached
+      - ./apache/logs:/etc/httpd/logs
+      - ./apache/config/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
+      - ./apache/config/www.conf:/etc/php-fpm.d/www.conf
     ports:
       - 8080:80
       - 5173:5173
