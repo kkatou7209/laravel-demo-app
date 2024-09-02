@@ -1,0 +1,6 @@
+[Sun Sep 01 14:58:17.894391 2024] [suexec:notice] [pid 48:tid 281472822943760] AH01232: suEXEC mechanism enabled (wrapper: /usr/sbin/suexec)
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.21.0.3. Set the 'ServerName' directive globally to suppress this message
+[Sun Sep 01 14:58:17.924249 2024] [lbmethod_heartbeat:notice] [pid 48:tid 281472822943760] AH02282: No slotmem from mod_heartmonitor
+[Sun Sep 01 14:58:17.924797 2024] [http2:warn] [pid 48:tid 281472822943760] AH02951: mod_ssl does not seem to be enabled
+[Sun Sep 01 14:58:17.928286 2024] [mpm_event:notice] [pid 48:tid 281472822943760] AH00489: Apache/2.4.37 (Rocky Linux) configured -- resuming normal operations
+[Sun Sep 01 14:58:17.928922 2024] [core:notice] [pid 48:tid 281472822943760] AH00094: Command line: '/usr/sbin/httpd -D FOREGROUND'
