@@ -63,7 +63,7 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');";\
     php -r "unlink('composer-setup.php');"
 
 # Nodeバージョン管理ツールのnvmをインストール
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 
 # nvmでNodeとnpmをインストール
 RUN . ~/.nvm/nvm.sh\
