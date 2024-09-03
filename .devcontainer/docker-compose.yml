@@ -9,6 +9,8 @@ services:
       - ./apache/logs:/etc/httpd/logs
       - ./apache/config/vhosts.conf:/etc/httpd/conf.d/vhosts.conf
       - ./apache/config/www.conf:/etc/php-fpm.d/www.conf
+      - laravel-demo-vendor:/workspace/vendor
+      - laravel-demo-node_modules:/workspace/node_modules
     ports:
       - 8080:80
       - 5173:5173
@@ -37,3 +39,7 @@ services:
 networks:
   laravel-demo-net:
     driver: bridge
+
+volumes:
+  laravel-demo-vendor:
+  laravel-demo-node_modules:
