@@ -1,7 +1,5 @@
 // https://containers.dev/implementors/json_reference/
 {
-    "name": "${localWorkspaceFolderBasename}",
-
     // Composeファイルの指定
     "dockerComposeFile": "../docker-compose.yml",
 

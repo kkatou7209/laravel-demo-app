@@ -1,3 +1,5 @@
+name: laravel-demo-app
+
 services:
   apache:
     container_name: laravel-demo-apache
