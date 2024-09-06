@@ -1,5 +1,3 @@
-# 最終更新：2024/08/29
-
 # コンテナイメージにRockyLinuxを選択
 FROM rockylinux:8.9
 
