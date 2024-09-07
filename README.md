@@ -76,3 +76,8 @@ php artisan test --parallel --processes=4
 php artisan test --parallel --recreate-databases
 ```
 
+## トラブルシューティング
+
+### ERR_CONNECTION_REFUSED
+
+- `public/hot`ファイルを削除
