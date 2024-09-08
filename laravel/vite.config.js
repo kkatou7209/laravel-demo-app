@@ -9,7 +9,10 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/ts/index.ts'],
-            refresh: true,
+            refresh: [
+                "resources/ts/**",
+                "resources/view/**"
+            ],
         }),
         vue({
             template: { transformAssetUrls}
@@ -31,6 +34,7 @@ export default defineConfig({
         ],
     },
     server: {
-        host: true
+        host: true,
+        hmr: true
     }
 });

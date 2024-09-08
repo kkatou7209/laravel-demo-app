@@ -1,39 +1,34 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref, watch } from 'vue';
+import { useTheme } from 'vuetify/lib/framework.mjs';
+import { useRoute, useRouter } from "vue-router";
 
-const drawerShow = ref(false);
+import AdminRootLayout from '@/layout/AdminRootLayout.vue';
+import UserRootLayout from '@/layout/UserRootLayout.vue';
+
+const theme = useTheme();
+
+const isThemeDark = ref(theme.global.name.value === "appDarkTheme");
+
+watch(isThemeDark, () => theme.global.name.value = isThemeDark.value ? "appDarkTheme" : "appLightTheme");
+
+const router = useRouter();
+
+console.log(router.currentRoute.value)
 
 </script>
 
 <template>
     <v-app>
-        <v-layout>
-            <!-- ヘッダーナビゲーション -->
-            <v-app-bar color="secondary">
-                <template v-slot:prepend>
-                    <v-app-bar-nav-icon @click="drawerShow = !drawerShow"/>
-                </template>
-                <v-app-bar-title>Laravel Demo App</v-app-bar-title>
-            </v-app-bar>
-
-            <!-- サイドナビゲーション -->
-            <v-navigation-drawer v-model="drawerShow" width="20rem">
-                <v-list>
-                    <router-link to="/login">
-                        <v-list-item title="Login" />
-                    </router-link>
-                    <v-list-item title="Menu2" />
-                    <v-list-item title="Menu3" />
-                </v-list>
-            </v-navigation-drawer>
-
-            <!--
-                メイン画面
-                Vue Router で画面遷移
-             -->
-            <v-main>
+        <template v-if="$route.path.match('/admin')">
+            <admin-root-layout>
                 <router-view />
-            </v-main>
-        </v-layout>
+            </admin-root-layout>
+        </template>
+        <template v-else>
+            <user-root-layout>
+                <router-view />
+            </user-root-layout>
+        </template>
     </v-app>
 </template>

@@ -14,6 +14,7 @@ services:
       - laravel-demo-node_modules:/workspace/node_modules
     ports:
       - 8080:80
+      - 5173:5173
     privileged: true
     command: /usr/sbin/init
     tty: true
