@@ -2,21 +2,17 @@ name: laravel-demo-app
 
 services:
   apache:
-    container_name: laravel-demo-apache
+    container_name: laravel-demo-laravel
     build: 
-      context: ./apache
-      dockerfile: apache.Dockerfile
+      context: ./laravel
+      dockerfile: laravel.Dockerfile
     volumes:
       - ../laravel:/workspace:cached
-      - ./apache/config/laravel-demo-vhost.conf:/etc/httpd/conf.d/laravel-demo-vhost.conf
-      - ./apache/config/www.conf:/etc/php-fpm.d/www.conf
       - laravel-demo-vendor:/workspace/vendor
       - laravel-demo-node_modules:/workspace/node_modules
     ports:
-      - 8080:80
+      # Laravel + Vite のホットリロード有効化のためにポートフォワード
       - 5173:5173
-    privileged: true
-    command: /usr/sbin/init
     tty: true
     networks:
       - laravel-demo-net
@@ -32,8 +28,6 @@ services:
       MARIADB_USER: mariadb-user
       MARIADB_PASSWORD: mariadb-pass
       TZ: Asia/Tokyo
-    ports:
-      - 3306:3306
     networks:
       - laravel-demo-net
 

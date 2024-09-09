@@ -11,8 +11,6 @@ RUN dnf -y update && \
     dnf -y install \
         # curlインストール（レスポンス確認用）
         curl \
-        # gitインストール（git拡張機能を有効化するため）
-        git \
         # netcatインストール（接続確認用）
         nmap \
         # zipインストール（composer create-project用）
@@ -29,8 +27,7 @@ RUN dnf -y install https://rpms.remirepo.net/enterprise/remi-release-8.rpm;\
     # PHPをインストール
     dnf -y install php;\
     # Laravelが依存しているPHP拡張機能をインストール https://laravel.com/docs/11.x/deployment
-    dnf -y install php-fpm\
-                   php-ctype\
+    dnf -y install php-ctype\
                    php-curl\
                    php-dom\
                    php-fileinfo\
@@ -71,9 +68,3 @@ RUN . ~/.nvm/nvm.sh\
     && nvm alias default ${NODE_VERSION}\
     # デフォルトバージョンを使用する
     && nvm use default
-
-# Apacheインストール
-RUN dnf -y install httpd
-
-# Apacheを有効化
-RUN systemctl enable httpd
