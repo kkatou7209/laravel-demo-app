@@ -6,22 +6,33 @@ import ThemeSwith from "@/components/ThemeSwitch.vue";
     <v-layout>
             <!-- サイドナビゲーション -->
             <v-navigation-drawer color="primary" elevation="4">
-                <v-list>
-                    <v-list-item link title="Login">
-                        <router-link to="/login"/>
-                    </v-list-item>
-                    <v-list-item title="Menu2" />
-                    <v-list-item title="Menu3" />
-                </v-list>
+                <div class="pa-5">
+                    <h1 class="font-weight-bold text-subtitle-2">Laravel Demo App</h1>
+                </div>
+                <v-divider/>
+                    <v-list density="compact">
+                        <v-list-subheader>一覧</v-list-subheader>
+                        <v-list-item link title="商品"/>
+                        <v-list-item link title="売上" />
+                        <v-list-item link title="ユーザー"/>
+                        <v-list-item link title="通知"/>
+                    </v-list>
+                    <v-divider/>
+                    <v-list density="compact">
+                        <v-list-subheader>管理</v-list-subheader>
+                        <v-list-item link title="アカウント設定"/>
+                        <v-list-item link title="管理ユーザー"/>
+                    </v-list>
+                    <v-divider/>
+                    <v-list>
+                        <v-list-item link title="設定"/>
+                        <v-list-item style="display: flex; justify-content: end;" class="pr-3 pl-3">
+                            <theme-swith/>
+                        </v-list-item>
+                    </v-list>
             </v-navigation-drawer>
 
-            <!-- ヘッダーナビゲーション -->
-            <v-app-bar color="background">
-                <v-app-bar-title>Laravel Demo App</v-app-bar-title>
-                <theme-swith />
-            </v-app-bar>
-
-            <v-main>
+            <v-main style="overflow: scroll;" height="100vh">
                 <v-container fluid max-width="1200">
                     <slot></slot>
                 </v-container>

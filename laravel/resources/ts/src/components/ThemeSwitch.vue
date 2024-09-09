@@ -14,11 +14,12 @@ watch(isThemeDark, () => {
 </script>
 
 <template>
-    <v-switch
-        v-model="isThemeDark"
-        :true-icon="mdiWeatherNight"
-        :false-icon="mdiWeatherSunny"
-        color="secondary"
-        :style="{paddingRight: '10px'}"
-    ></v-switch>
+    <div style="width: 100px; padding: 0 20px; display: flex; justify-content: center;">
+        <v-switch
+            v-model="isThemeDark"
+            :true-icon="mdiWeatherNight"
+            :false-icon="mdiWeatherSunny"
+            color="secondary"
+        ></v-switch>
+    </div>
 </template>

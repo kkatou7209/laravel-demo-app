@@ -9,7 +9,7 @@ const appLightTheme: ThemeDefinition = {
         surface: "#FFF",
         background: "#EEE",
         primary: "#2B4EC2",
-        secondary: "#88C7FF",
+        secondary: "#2D8FE4",
     },
     variables: {}
 }
