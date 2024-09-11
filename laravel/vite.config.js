@@ -3,21 +3,36 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'url';
+import { watch } from 'fs';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/ts/index.ts'],
+            input: [
+                'resources/ts/index.ts',
+                'resources/css/app.css'
+            ],
             refresh: [
                 "resources/ts/**",
-                "resources/view/**"
+                "resources/views/**",
+            ],
+            postcss: [
+                tailwindcss({
+                    content: [
+                        './resources/views/**/*.blade.php'
+                    ]
+                }),
+                autoprefixer()
             ],
         }),
         vue({
             template: { transformAssetUrls}
         }),
-        vuetify({ autoImport: true })
+        vuetify({ autoImport: true }),
+
     ],
     resolve: {
         alias: [
@@ -34,7 +49,13 @@ export default defineConfig({
         ],
     },
     server: {
-        host: true,
-        hmr: true
+        host: '0.0.0.0',
+        hmr: {
+            host: '127.0.0.1'
+        },
+        watch: {
+            usePolling: true,
+            interval: 1000
+        }
     }
 });
