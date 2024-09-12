@@ -6,7 +6,6 @@ import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import { fileURLToPath, URL } from 'url';
-import { watch } from 'fs';
 
 export default defineConfig({
     plugins: [
@@ -18,15 +17,7 @@ export default defineConfig({
             refresh: [
                 "resources/ts/**",
                 "resources/views/**",
-            ],
-            postcss: [
-                tailwindcss({
-                    content: [
-                        './resources/views/**/*.blade.php'
-                    ]
-                }),
-                autoprefixer()
-            ],
+            ]
         }),
         vue({
             template: { transformAssetUrls}
@@ -47,6 +38,11 @@ export default defineConfig({
             '.tsx',
             '.vue',
         ],
+    },
+    css: {
+        postcss: {
+            plugins: [tailwindcss()]
+        }
     },
     server: {
         host: '0.0.0.0',

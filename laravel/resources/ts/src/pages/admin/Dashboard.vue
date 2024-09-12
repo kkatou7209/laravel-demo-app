@@ -2,7 +2,6 @@
 import { computed, defineComponent, ref } from 'vue';
 import { generateFakeNotifications, generateFakeProducts, generateFakeSales, generateFakeUsers } from '@/fake/faker';
 import { mdiInformation } from '@mdi/js';
-import { BarChart } from 'vue-chart-3';
 
 const products = ref(generateFakeProducts(10));
 const users = ref(generateFakeUsers(20));
