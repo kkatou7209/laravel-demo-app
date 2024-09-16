@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::view('/signup', 'signup');
+
+Route::prefix('admin')->group(function () {
+    Route::view('/', 'admin.index');
 });
