@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<body class="text-text">
+<body class="h-screen w-screen">
     @yield('content')
 
     @vite('resources/css/app.css')

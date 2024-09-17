@@ -1,7 +1,7 @@
 name: laravel-demo-app
 
 services:
-  apache:
+  laravel:
     container_name: laravel-demo-laravel
     build: 
       context: ./laravel

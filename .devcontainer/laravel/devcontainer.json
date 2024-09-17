@@ -4,7 +4,7 @@
     "dockerComposeFile": "../docker-compose.yml",
 
     // Composeファイル上のサービス名を指定
-    "service": "apache",
+    "service": "laravel",
 
     // アタッチ後の作業ディレクトリを指定
     "workspaceFolder": "/workspace",

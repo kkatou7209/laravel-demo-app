@@ -31,25 +31,6 @@ const router = createRouter({
     history: createMemoryHistory(),
     routes: [
         {
-            path: "/",
-            name: "Home",
-            component: () => import("@/pages/Home.vue"),
-            meta: {
-                requiresAuth: true,
-                isUser: true,
-            }
-        },
-        {
-            path: "/login",
-            name: "Login",
-            component: () => import("@/pages/Login.vue")
-        },
-        {
-            path: "/signup",
-            name: "SignUp",
-            component: () => import("@/pages/SignUp.vue")
-        },
-        {
             path: "/admin",
             name: "Admin",
             meta: {

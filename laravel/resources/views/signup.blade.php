@@ -1,21 +1,26 @@
 @extends('_layout')
 
 @section('content')
-<div class="contain-content flex justify-center py-3">
-    <div class="min-w-96 shadow-shadow shadow-md rounded-md py-6 px-10 mt-8 bg-surface">
-        <h2 class="text-xl">登録情報を入力</h2>
-        <div class="border-t-primary border-[0.5px] my-4"></div>
-        <form action="post">
-            <label class="block mb-2 mt-10" for="email">メールアドレス</label>
-            <input class="block w-full mb-1 border-black border-[0.3px] rounded-md p-2" type="email" name="email" id="email">
-            <p class="block h-10 text-xs"></p>
-            <label class="block mb-2" for="password">パスワード</label>
-            <input class="block w-full border-black border-[0.3px] rounded-md p-2" type="password" name="password" id="password">
-            <p class="block h-10 text-xs"></p>
-            <div class="flex justify-end">
-                <x-btn class="bg-primary">登録</x-btn>
-            </div>
-        </form>
+<div class="w-full h-full px-4 flex justify-center items-center">
+    <div class="h-1/2 w-1/2 rounded-xl shadow-md border-gray-300 border py-6 px-16">
+        <div class="flex justify-center h-1/3">
+            <legend class="m-auto text-4xl pb-10 pt-2">登録</legend>
+        </div>
+        <div class="h-2/3">
+            <form action="/signup" method="POST" class="h-full w-full flex flex-col justify-between">
+                <div class="relative mb-4">
+                    <input id="email" type="email" class="block w-full rounded-md py-4 px-4 peer/email ring-1 ring-gray-400">
+                    <label for="email" class="absolute top-4 left-4 peer-focus/email:top-[-10px] peer-focus/email:text-xs duration-100 bg-white text-gray-400">メールアドレス</label>
+                </div>
+                <div class="relative mb-4">
+                    <input id="password" type="password" class="block w-full rounded-md py-4 px-4 peer/password ring-1 ring-gray-400">
+                    <label for="password" class="absolute top-4 left-4 peer-focus/password:top-[-10px] peer-focus/password:text-xs duration-100 bg-white text-gray-400">パスワード</label>
+                </div>
+                <div class="flex justify-end">
+                    <button class="rounded-md bg-primary text-white shadow-sm shadow-gray-500 py-2 px-4">登録</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 @endsection
