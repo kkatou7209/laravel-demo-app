@@ -8,4 +8,4 @@ Route::view('/signup', 'signup');
 
 Route::prefix('admin')->group(function () {
     Route::view('/', 'admin.index');
-});
+})->middleware('auth');

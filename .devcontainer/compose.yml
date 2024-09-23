@@ -28,6 +28,8 @@ services:
       MARIADB_USER: mariadb-user
       MARIADB_PASSWORD: mariadb-pass
       TZ: Asia/Tokyo
+    ports:
+      - 3306:3306
     networks:
       - laravel-demo-net
 

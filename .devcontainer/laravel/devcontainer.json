@@ -1,7 +1,7 @@
 // https://containers.dev/implementors/json_reference/
 {
     // Composeファイルの指定
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "../compose.yml",
 
     // Composeファイル上のサービス名を指定
     "service": "laravel",
@@ -9,8 +9,17 @@
     // アタッチ後の作業ディレクトリを指定
     "workspaceFolder": "/workspace",
 
+    "postCreateCommand": "composer install && npm i -g pnpm && pnpm i",
+
     "customizations": {
         "vscode": {
+            "settings": {
+                "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+                "php.validate.executablePath": "/usr/bin/php",
+                "intelephense.environment.phpVersion": "8.1",
+                "intelephense.environment.includePaths": [ "/workspace" ],
+                "intelephense.environment.includePaths": ["/workspace"]
+            },
             "extensions": [
                 // Laravelの拡張機能パック
                 // https://marketplace.visualstudio.com/items?itemName=onecentlin.laravel-extension-pack
@@ -18,7 +27,8 @@
                 "Vue.volar",
                 "bradlc.vscode-tailwindcss",
                 "csstools.postcss",
-                "formulahendry.auto-rename-tag"
+                "formulahendry.auto-rename-tag",
+                "bmewburn.vscode-intelephense-client"
             ]
         }
     }
