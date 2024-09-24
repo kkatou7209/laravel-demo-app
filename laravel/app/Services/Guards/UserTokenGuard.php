@@ -1,9 +1,10 @@
 <?php
+namespace App\Services\Guards;
 
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-class TokenGurds extends Guard
+class UserTokenGurd extends Guard
 {
     /**
      * Determine if the current user is authenticated.

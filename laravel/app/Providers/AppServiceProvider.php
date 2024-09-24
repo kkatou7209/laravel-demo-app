@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
+use App\Services\Guards\AdminTokenGuard;
+use App\Services\Guards\UserTokenGurd;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -20,8 +23,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::provider('users', function ($app, array $config) {
+        Auth::extend('api_user', function ($app, $name, array $config) {
+            return new UserTokenGurd();
+        });
 
+        Auth::extend('api_admin', function ($app, $name, array $config) {
+            return new AdminTokenGuard();
         });
     }
 }

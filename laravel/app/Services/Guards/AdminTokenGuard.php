@@ -1,4 +1,7 @@
 <?php
+
+namespace App\Services\Guards;
+
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Authenticatable;
 
