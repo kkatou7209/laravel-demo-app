@@ -40,6 +40,14 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api_user' => [
+            'driver' => 'token',
+            'provider' => 'general_users'
+        ],
+        'api_admin' => [
+            'driver' => 'token',
+            'provider' => 'admin_users'
+        ]
     ],
 
     /*
@@ -60,15 +68,14 @@ return [
     */
 
     'providers' => [
-        // 'users' => [
-        //     'driver' => 'eloquent',
-        //     'model' => env('AUTH_MODEL', App\Models\User::class),
-        // ],
-
-        'users' => [
+        'general_users' => [
             'driver' => 'database',
-            'table' => 'users',
+            'model' => \App\Models\User::class,
         ],
+        'admin_users' => [
+            'driver' => 'database',
+            'model' => \App\Models\AdminUser::class,
+        ]
     ],
 
     /*
