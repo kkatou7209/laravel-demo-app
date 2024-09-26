@@ -36,17 +36,21 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'customer' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'customers',
         ],
-        'api_user' => [
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins'
+        ],
+        'api_customer' => [
             'driver' => 'token',
-            'provider' => 'general_users'
+            'provider' => 'customers'
         ],
         'api_admin' => [
             'driver' => 'token',
-            'provider' => 'admin_users'
+            'provider' => 'admins'
         ]
     ],
 
@@ -68,13 +72,13 @@ return [
     */
 
     'providers' => [
-        'general_users' => [
+        'customers' => [
             'driver' => 'database',
-            'model' => \App\Models\User::class,
+            'model' => \App\Models\Customer::class,
         ],
-        'admin_users' => [
+        'admins' => [
             'driver' => 'database',
-            'model' => \App\Models\AdminUser::class,
+            'model' => \App\Models\Admin::class,
         ]
     ],
 

@@ -2,11 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\AdminUserProvider;
+use App\Models\CustomerUserProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 use App\Services\Guards\AdminTokenGuard;
 use App\Services\Guards\UserTokenGurd;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Facades\App;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,12 +27,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::extend('api_user', function ($app, $name, array $config) {
-            return new UserTokenGurd();
+        App::bind(AdminUserProvider::class, function (Application $app) {
+            return new AdminUserProvider();
         });
 
-        Auth::extend('api_admin', function ($app, $name, array $config) {
-            return new AdminTokenGuard();
+        App::bind(CustomerUserProvider::class, function (Application $app) {
+            return new CustomerUserProvider();
+        });
+
+        Auth::provider('customers', function ($app, array $config) {
+            return new CustomerUserProvider();
+        });
+
+        Auth::provider('admins', function ($app, array $config) {
+            return new AdminUserProvider();
         });
     }
 }

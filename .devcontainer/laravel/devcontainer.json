@@ -9,7 +9,8 @@
     // アタッチ後の作業ディレクトリを指定
     "workspaceFolder": "/workspace",
 
-    "postCreateCommand": "composer install && npm i -g pnpm && pnpm i",
+    // コンテナ立ち上げ後に実行するコマンドを定義
+    "postCreateCommand": "/setup.sh",
 
     "customizations": {
         "vscode": {

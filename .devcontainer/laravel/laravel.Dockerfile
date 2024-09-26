@@ -68,3 +68,7 @@ RUN . ~/.nvm/nvm.sh\
     && nvm alias default ${NODE_VERSION}\
     # デフォルトバージョンを使用する
     && nvm use default
+
+COPY ./setup.sh /setup.sh
+
+RUN chmod 777 /setup.sh
