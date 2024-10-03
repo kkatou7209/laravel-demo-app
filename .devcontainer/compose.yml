@@ -10,12 +10,15 @@ services:
       - ../laravel:/workspace:cached
       - laravel-demo-vendor:/workspace/vendor
       - laravel-demo-node_modules:/workspace/node_modules
+      - laravel-demo-pnpm-store:/workspace/.pnpm-store
     ports:
       # Laravel + Vite のホットリロード有効化のためにポートフォワード
       - 5173:5173
     tty: true
     networks:
       - laravel-demo-net
+    depends_on:
+      - mariadb
 
   mariadb:
     container_name: laravel-demo-mariadb
@@ -40,3 +43,4 @@ networks:
 volumes:
   laravel-demo-vendor:
   laravel-demo-node_modules:
+  laravel-demo-pnpm-store:

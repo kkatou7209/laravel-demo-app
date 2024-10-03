@@ -38,11 +38,11 @@ return [
     'guards' => [
         'customer' => [
             'driver' => 'session',
-            'provider' => 'customers',
+            'provider' => 'customer',
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admins'
+            'provider' => 'admin'
         ],
         'api_customer' => [
             'driver' => 'token',
@@ -72,13 +72,11 @@ return [
     */
 
     'providers' => [
-        'customers' => [
-            'driver' => 'database',
-            'model' => \App\Models\Customer::class,
+        'customer' => [
+            'driver' => 'customer'
         ],
-        'admins' => [
-            'driver' => 'database',
-            'model' => \App\Models\Admin::class,
+        'admin' => [
+            'driver' => 'admin'
         ]
     ],
 

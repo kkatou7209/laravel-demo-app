@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->timestamp('created_at')->default(time());
-            $table->timestamp('updated_at')->nullable();
-            $table->timestamp('deleted_at')->nullable();
-            $table->foreignId('partner_id')->references('id')->on('partners');
+            $table->dateTime('created_at')->default(time());
+            $table->dateTime('updated_at')->nullable();
+            $table->dateTime('deleted_at')->nullable();
+            $table->foreign('partner_id')->references('id')->on('partners');
         });
     }
 

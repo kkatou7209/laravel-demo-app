@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\Auth;
 
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
@@ -13,9 +13,9 @@ class CustomerUserProvider implements UserProvider
      * @param  mixed  $identifier
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function retrieveById($identifier)
+    public function retrieveById($identifier): Authenticatable | null
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -25,9 +25,9 @@ class CustomerUserProvider implements UserProvider
      * @param  string  $token
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function retrieveByToken($identifier, $token)
+    public function retrieveByToken($identifier, $token): Authenticatable | null
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -37,9 +37,9 @@ class CustomerUserProvider implements UserProvider
      * @param  string  $token
      * @return void
      */
-    public function updateRememberToken(Authenticatable $user, $token)
+    public function updateRememberToken(Authenticatable $user, $token): string
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -48,9 +48,9 @@ class CustomerUserProvider implements UserProvider
      * @param  array  $credentials
      * @return \Illuminate\Contracts\Auth\Authenticatable|null
      */
-    public function retrieveByCredentials(array $credentials)
+    public function retrieveByCredentials(array $credentials): Authenticatable | null
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -60,9 +60,9 @@ class CustomerUserProvider implements UserProvider
      * @param  array  $credentials
      * @return bool
      */
-    public function validateCredentials(Authenticatable $user, array $credentials)
+    public function validateCredentials(Authenticatable $user, array $credentials): bool
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -73,8 +73,8 @@ class CustomerUserProvider implements UserProvider
      * @param  bool  $force
      * @return void
      */
-    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false)
+    public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false): void
     {
-
+        throw new \Nette\NotImplementedException();
     }
 }

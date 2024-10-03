@@ -69,6 +69,6 @@ RUN . ~/.nvm/nvm.sh\
     # デフォルトバージョンを使用する
     && nvm use default
 
-COPY ./setup.sh /setup.sh
+COPY ./setup.sh /usr/local/bin/setup.sh
 
-RUN chmod 777 /setup.sh
+RUN chmod 777 /usr/local/bin/setup.sh

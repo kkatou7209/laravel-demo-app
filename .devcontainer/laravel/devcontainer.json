@@ -10,7 +10,7 @@
     "workspaceFolder": "/workspace",
 
     // コンテナ立ち上げ後に実行するコマンドを定義
-    "postCreateCommand": "/setup.sh",
+    "postCreateCommand": "/usr/local/bin/setup.sh",
 
     "customizations": {
         "vscode": {

@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Services\Auth;
 
 use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\DB;
 
 class AdminUserProvider implements UserProvider
 {
@@ -15,7 +16,9 @@ class AdminUserProvider implements UserProvider
      */
     public function retrieveById($identifier): Authenticatable|null
     {
+        $user = DB::selectOne("SELECT * FROM admins WHERE id = {$identifier}");
 
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -27,7 +30,7 @@ class AdminUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token): Authenticatable | null
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -39,7 +42,7 @@ class AdminUserProvider implements UserProvider
      */
     public function updateRememberToken(Authenticatable $user, $token): void
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -50,7 +53,7 @@ class AdminUserProvider implements UserProvider
      */
     public function retrieveByCredentials(array $credentials): Authenticatable
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -62,7 +65,7 @@ class AdminUserProvider implements UserProvider
      */
     public function validateCredentials(Authenticatable $user, array $credentials): bool
     {
-
+        throw new \Nette\NotImplementedException();
     }
 
     /**
@@ -75,6 +78,6 @@ class AdminUserProvider implements UserProvider
      */
     public function rehashPasswordIfRequired(Authenticatable $user, array $credentials, bool $force = false): void
     {
-
+        throw new \Nette\NotImplementedException();
     }
 }
